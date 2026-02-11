@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Edmund Rainiero - Finance Analyst especializado en análisis financiero, habilidades analíticas y herramientas de datos.">
+    <title>Edmund Rainiero</title>
+    <link rel="icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcomKLXOz96eV4TstrRB73uqFT9op-BZ7aaw&s">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --text: #94a3b8;
+            --text-highlight: #e2e8f0;
+            --accent: #5eead4; /* teal-300 aproximado */
+            --accent-dark: #2dd4bf;
+            --overlay: rgba(15, 23, 42, 0.75);
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .spotlight {
+            pointer-events: none;
+            position: fixed;
+            inset: 0;
+            z-index: 10;
+            background: radial-gradient(600px circle at var(--x, 50%) var(--y, 50%), rgba(45, 212, 191, 0.12), transparent 80%);
+            transition: background 0.4s ease;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+        @media (min-width: 1024px) {
+            .container { padding: 0 5rem; display: flex; gap: 4rem; }
+        }
+        header {
+            position: relative;
+            z-index: 20;
+            padding: 4rem 0 2rem;
+        }
+        @media (min-width: 1024px) {
+            header { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; justify-content: space-between; padding: 8rem 0; width: 45%; }
+        }
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-highlight);
+            margin-bottom: 0.5rem;
+        }
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-highlight);
+            margin: 3rem 0 1rem;
+        }
+        nav ul {
+            margin: 3rem 0;
+            list-style: none;
+        }
+        nav a {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 0;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            transition: all 0.2s ease;
+        }
+        nav a:hover, nav a:focus {
+            color: var(--accent);
+        }
+        nav .indicator {
+            width: 2rem;
+            height: 1px;
+            background: var(--text);
+            margin-right: 1rem;
+            transition: all 0.3s ease;
+        }
+        nav a:hover .indicator, nav a:focus .indicator {
+            width: 4rem;
+            background: var(--accent);
+        }
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .social-links a {
+            color: var(--text);
+            transition: color 0.2s;
+        }
+        .social-links a:hover {
+            color: var(--accent);
+        }
+        main {
+            padding: 6rem 0 4rem;
+        }
+        @media (min-width: 1024px) { main { width: 55%; padding-top: 12rem; } }
+        section { margin-bottom: 6rem; }
+        .section-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .group:hover .group-hover\:opacity-50 { opacity: 0.5; transition: opacity 0.3s; }
+        .group:hover .group-hover\:opacity-100 { opacity: 1; }
+        .card {
+            position: relative;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            background: rgba(30, 41, 59, 0.5);
+            transform: translateY(-4px);
+        }
+        img {
+            border-radius: 0.5rem;
+            border: 2px solid rgba(148, 163, 184, 0.1);
+            transition: border-color 0.3s;
+        }
+        img:hover { border-color: var(--accent); }
+        .pill {
+            display: inline-block;
+            background: rgba(94, 234, 212, 0.1);
+            color: var(--accent);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            margin: 0.25rem;
+        }
+        footer {
+            text-align: center;
+            padding: 4rem 0;
+            color: var(--text);
+            font-size: 0.875rem;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        /* Skip link */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            background: var(--accent);
+            color: #000;
+            padding: 1rem;
+            z-index: 100;
+        }
+        .skip-link:focus { top: 0; }
+    </style>
+</head>
+<body>
+    <div class="spotlight" id="spotlight"></div>
+
+    <a href="#content" class="skip-link">Skip to main content</a>
+
+    <div class="container">
+        <header>
+            <div>
+                <h1>Edmund Rainiero</h1>
+                <h2 class="mt-2 text-xl text-slate-300">Finance Analyst</h2>
+                <p class="mt-4 max-w-md">Analizo datos financieros, desarrollo modelos predictivos y utilizo herramientas avanzadas para generar insights accionables en entornos dinámicos.</p>
+
+                <nav aria-label="Main navigation">
+                    <ul class="mt-16">
+                        <li><a href="#about"><span class="indicator"></span>About</a></li>
+                        <li><a href="#expertise"><span class="indicator"></span>Expertise</a></li>
+                        <li><a href="#contact"><span class="indicator"></span>Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="social-links mt-8">
+                <a href="https://www.linkedin.com/in/edmund-rainiero-m-2982691a5/" aria-label="LinkedIn" target="_blank">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-1.337-.029-3.058-1.867-3.058-1.867 0-2.152 1.459-2.152 2.966v5.696h-3v-11h2.882v1.509h.039c.401-.757 1.381-1.557 2.837-1.557 3.033 0 3.597 1.997 3.597 4.597v6.451z"/></svg>
+                </a>
+                <a href="mailto:mantillacalderonedmund@gmail.com" aria-label="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </a>
+                <a href="tel:+51969326968" aria-label="Phone">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.24 1.02l-2.2 2.2z"/></svg>
+                </a>
+            </div>
+        </header>
+
+        <main id="content">
+            <section id="about">
+                <h2 class="section-title">About</h2>
+                <p class="mb-4">Soy Edmund Rainiero, analista financiero basado en Lima, Perú. Me especializo en transformar datos complejos en decisiones estratégicas claras, combinando análisis cuantitativo con herramientas modernas.</p>
+                <p>Mi enfoque está en la precisión, la accesibilidad de la información y la optimización de procesos financieros mediante tecnología.</p>
+            </section>
+
+            <section id="expertise">
+                <h2 class="section-title">Expertise</h2>
+                <div class="group/list space-y-12">
+                    <div class="group relative grid gap-6 sm:grid-cols-8 md:gap-8 lg:hover:!opacity-100 lg:group-hover/list:opacity-60 transition-all">
+                        <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-lg transition lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50"></div>
+                        <div class="z-10 sm:col-span-6">
+                            <h3 class="font-medium text-slate-200">Finance Analysis</h3>
+                            <p class="mt-2 text-sm">Análisis financiero integral, elaboración de reportes y visualización de datos para apoyar la toma de decisiones empresariales.</p>
+                            <img src="https://assets.everspringpartners.com/23/a9/c4eb2a8c46e89b5332f11217c018/finacial-statement.png" alt="Gráfico de análisis financiero con barras y reportes" loading="lazy" class="mt-4 w-full max-w-xs rounded border border-slate-700/50 group-hover:border-teal-500/50"width="200" height="150">
+                        </div>
+                    </div>
+
+                    <div class="group relative grid gap-6 sm:grid-cols-8 md:gap-8 lg:hover:!opacity-100 lg:group-hover/list:opacity-60 transition-all">
+                        <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-lg transition lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50"></div>
+                        <div class="z-10 sm:col-span-6">
+                            <h3 class="font-medium text-slate-200">Skills</h3>
+                            <p class="mt-2 text-sm">Pensamiento analítico, resolución de problemas financieros, modelado predictivo y aprendizaje continuo en finanzas y tech.</p>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuRr6GjUgxtg7t7jTX3b3IRM6m2gfeMhIokA&s" alt="Persona manipulando un holograma de habilidades y competencias" loading="lazy" class="mt-4 w-full max-w-xs rounded border border-slate-700/50 group-hover:border-teal-500/50"width="200" height="150">
+                        </div>
+                    </div>
+
+                    <div class="group relative grid gap-6 sm:grid-cols-8 md:gap-8 lg:hover:!opacity-100 lg:group-hover/list:opacity-60 transition-all">
+                        <div class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-lg transition lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50"></div>
+                        <div class="z-10 sm:col-span-6">
+                            <h3 class="font-medium text-slate-200">Tools</h3>
+                            <p class="mt-2 text-sm">Dominio avanzado de Excel, Power BI, SQL, Python para finanzas y otras herramientas de modelado y visualización.</p>
+                            <img src="https://img-c.udemycdn.com/course/240x135/1880552_0a34_13.jpg" alt="Iconos de herramientas Microsoft: Excel, Word y PowerPoint" loading="lazy" class="mt-4 w-full max-w-xs rounded border border-slate-700/50 group-hover:border-teal-500/50"width="200" height="150">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <h2 class="section-title">Contact</h2>
+                <p>Estoy abierto a oportunidades, colaboraciones o consultas sobre análisis financiero y datos.</p>
+                <p class="mt-4">
+                    <a href="mailto:mantillacalderonedmund@gmail.com">mantillacalderonedmund@gmail.com</a><br>
+                    <a href="tel:+51969326968">+51 969 326 968</a>
+                </p>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>Designed with inspiration from Brittany Chiang. Built with HTML/CSS. © 2026 Edmund Rainiero.</p>
+    </footer>
+
+    <script>
+        const spotlight = document.getElementById('spotlight');
+        document.addEventListener('mousemove', (e) => {
+            spotlight.style.setProperty('--x', `${e.clientX}px`);
+            spotlight.style.setProperty('--y', `${e.clientY}px`);
+        });
+    </script>
+</body>
+</html>
